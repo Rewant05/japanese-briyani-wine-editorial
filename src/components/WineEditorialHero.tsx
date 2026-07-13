@@ -1,10 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { siteData } from '../config/siteData';
-
-gsap.registerPlugin(ScrollTrigger);
+import { SmartImage } from './SmartImage';
 
 export const WineEditorialHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,61 +9,79 @@ export const WineEditorialHero = () => {
 
   useEffect(() => {
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let ctx: { revert: () => void } | undefined;
+    let isMounted = true;
 
-    const ctx = gsap.context(() => {
-      /*
-       * LCP FIX: Animate ONLY secondary bento boxes (not .bento-main and not .bento-image).
-       * The main title box (which contains the h1) and the hero image (which is likely the LCP element)
-       * are NEVER hidden with opacity:0. They render immediately with the
-       * server/critical CSS, giving the browser the fastest LCP possible.
-       */
-      gsap.from('.bento-box:not(.bento-main):not(.bento-image)', {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.12,
-        ease: 'power3.out',
-        delay: 0.15,
-      });
+    const setupAnimations = async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+      ]);
 
-      // Subtle entrance for the main box content (translate only, NO opacity change)
-      gsap.from('.bento-main .hero-desc, .bento-main .hero-actions', {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out',
-        delay: 0.1,
-      });
+      if (!isMounted || !containerRef.current) return;
 
-      if (!isReducedMotion) {
-        // Wine fill animation on scroll
-        gsap.to(fillRef.current, {
-          height: '82%',
-          ease: 'none',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top top',
-            end: 'bottom center',
-            scrub: 1.2,
-          },
+      gsap.registerPlugin(ScrollTrigger);
+
+      ctx = gsap.context(() => {
+        /*
+         * LCP FIX: Animate ONLY secondary bento boxes (not .bento-main and not .bento-image).
+         * The main title box (which contains the h1) and the hero image (which is likely the LCP element)
+         * are NEVER hidden with opacity:0. They render immediately with the
+         * server/critical CSS, giving the browser the fastest LCP possible.
+         */
+        gsap.from('.bento-box:not(.bento-main):not(.bento-image)', {
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.12,
+          ease: 'power3.out',
+          delay: 0.15,
         });
 
-        // Subtle image parallax
-        gsap.to('.bento-parallax-img', {
-          yPercent: 12,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true,
-          },
+        // Subtle entrance for the main box content (translate only, NO opacity change)
+        gsap.from('.bento-main .hero-desc, .bento-main .hero-actions', {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power2.out',
+          delay: 0.1,
         });
-      }
-    }, containerRef);
 
-    return () => ctx.revert();
+        if (!isReducedMotion) {
+          // Wine fill animation on scroll
+          gsap.to(fillRef.current, {
+            height: '82%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: 'top top',
+              end: 'bottom center',
+              scrub: 1.2,
+            },
+          });
+
+          // Subtle image parallax
+          gsap.to('.bento-parallax-img', {
+            yPercent: 12,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: 'top top',
+              end: 'bottom top',
+              scrub: true,
+            },
+          });
+        }
+      }, containerRef);
+    };
+
+    void setupAnimations();
+
+    return () => {
+      isMounted = false;
+      ctx?.revert();
+    };
   }, []);
 
   const tastingNotes = ['香り', '酸味', '余韻', '産地', 'ペアリング'];
@@ -98,7 +113,7 @@ export const WineEditorialHero = () => {
 
         {/* ===== Wine Glass Box ===== */}
         <div className="bento-box bento-glass">
-          <div className="glass-label">scroll to pour</div>
+          <div className="glass-label">スクロールして注ぐ</div>
           <div className="glass-shape">
             <div className="glass-fill" ref={fillRef}>
               <div className="glass-fill-surface" />
@@ -123,16 +138,20 @@ export const WineEditorialHero = () => {
 
         {/* ===== Image Box (eager load + fetchpriority via preload in index.html) ===== */}
         <div className="bento-box bento-image">
-          <img
+          <SmartImage
             className="bento-parallax-img"
-            src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop"
+            src="/images/hero_wine.webp"
             alt="ワインのある暮らし"
             loading="eager"
             fetchPriority="high"
+            width={1024}
+            height={1024}
+            sizes="(min-width: 768px) 58vw, 100vw"
+            fallbackSrc="/images/hero_wine.png"
           />
           <div className="bento-image-overlay">
             <div>
-              <span className="tag-label">Pairing Guide</span>
+              <span className="tag-label">ペアリングガイド</span>
               <Link to="/pairing">食卓のペアリングを見る <span>→</span></Link>
             </div>
           </div>

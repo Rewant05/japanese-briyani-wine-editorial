@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { SmartImage } from './SmartImage';
 
 interface ArticleCardProps {
   id: number;
@@ -16,7 +17,14 @@ export const ArticleCard = ({ title, category, date, readingTime, excerpt, mood,
     <div className="article-card">
       <div className="article-card-image">
         {image && (
-          <img src={image} alt={title} loading="lazy" />
+          <SmartImage
+            src={image}
+            alt={title}
+            width={1024}
+            height={1024}
+            sizes="(min-width: 768px) 33vw, 100vw"
+            fallbackSrc="/images/article_wine_1.png"
+          />
         )}
         <div className="article-card-category">{category}</div>
         <div className="article-card-mood">{mood}</div>

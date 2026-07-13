@@ -11,11 +11,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Load fonts with display=swap via <link> instead of CSS @import (non-render-blocking) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" />
+    <!-- Load fonts without blocking render -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" />
+    </noscript>
 
     <!-- Preload hero image so it fetches before DOM paint -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1200&auto=format&fit=crop" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero_wine.webp" fetchpriority="high" />
 
     <!-- Inline critical CSS for instant first paint (dark bg + hero text) -->
     <style>

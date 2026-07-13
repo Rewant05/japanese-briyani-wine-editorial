@@ -5,6 +5,7 @@ import { ArticleCard } from '../components/ArticleCard';
 import { PairingCard } from '../components/PairingCard';
 import { RegionCard } from '../components/RegionCard';
 import { ResponsibleDrinkingNotice } from '../components/ResponsibleDrinkingNotice';
+import { SmartImage } from '../components/SmartImage';
 import { siteData } from '../config/siteData';
 
 export const Home = () => {
@@ -33,7 +34,15 @@ export const Home = () => {
             <div>
               {featuredArticle.image && (
                 <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-md)', aspectRatio: '16/10' }}>
-                  <img src={featuredArticle.image} alt={featuredArticle.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <SmartImage
+                    src={featuredArticle.image}
+                    alt={featuredArticle.title}
+                    width={1024}
+                    height={1024}
+                    sizes="(min-width: 768px) 58vw, 100vw"
+                    fallbackSrc="/images/article_wine_1.png"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
                 </div>
               )}
             </div>
@@ -57,7 +66,7 @@ export const Home = () => {
       <section className="section-py" style={{ background: 'var(--bg-secondary)' }}>
         <div className="container">
           <div className="section-header">
-            <span className="label">Food & Wine</span>
+            <span className="label">食事とワイン</span>
             <h2>食卓のペアリング</h2>
             <p>ワインと料理の組み合わせに正解はありません。ただ、少しの法則を知ることで、いつもの食卓がぐっと深まります。</p>
           </div>
@@ -76,7 +85,7 @@ export const Home = () => {
       <section className="section-py">
         <div className="container">
           <div className="section-header">
-            <span className="label">Japanese Wine Regions</span>
+            <span className="label">日本のワイン産地</span>
             <h2>日本ワインの産地を歩く</h2>
             <p>その土地の気候と土壌、そして作り手の情熱が生み出す日本のワイン。旅先としての産地の魅力もあわせてご紹介します。</p>
           </div>

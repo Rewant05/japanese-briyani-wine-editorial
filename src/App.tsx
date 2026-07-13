@@ -1,30 +1,34 @@
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Articles } from './pages/Articles';
-import { Pairing } from './pages/Pairing';
-import { Regions } from './pages/Regions';
-import { Contact } from './pages/Contact';
-import { Privacy } from './pages/Privacy';
-import { Terms } from './pages/Terms';
 import './index.css';
+
+const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })));
+const Articles = lazy(() => import('./pages/Articles').then(module => ({ default: module.Articles })));
+const Pairing = lazy(() => import('./pages/Pairing').then(module => ({ default: module.Pairing })));
+const Regions = lazy(() => import('./pages/Regions').then(module => ({ default: module.Regions })));
+const Contact = lazy(() => import('./pages/Contact').then(module => ({ default: module.Contact })));
+const Privacy = lazy(() => import('./pages/Privacy').then(module => ({ default: module.Privacy })));
+const Terms = lazy(() => import('./pages/Terms').then(module => ({ default: module.Terms })));
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="articles" element={<Articles />} />
-          <Route path="pairing" element={<Pairing />} />
-          <Route path="regions" element={<Regions />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="terms" element={<Terms />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<div style={{ minHeight: '100vh', background: '#121010' }} />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="articles" element={<Articles />} />
+            <Route path="pairing" element={<Pairing />} />
+            <Route path="regions" element={<Regions />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="terms" element={<Terms />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

@@ -4,9 +4,9 @@ export const siteData = {
   tagline: "一杯のワインから、食卓と旅を深くする。",
   description: "ワインを、もっと日常の言葉で。葡萄日和は、ワインの知識をむずかしく語るのではなく、食卓、旅、季節の風景とともに楽しむための小さな編集室です。",
   editor: "葡萄日和編集部",
-  address: "東京都目黒区青葉台1-23-6 ワインテラス中目黒 4F",
+  address: "東京都目黒区青葉台1-23-6 ワインテラス中目黒 4階",
   email: "hello@budou-biyori.jp",
-  businessHours: "平日 10:00〜18:00",
+  businessHours: "平日 10時00分〜18時00分",
   instagram: "https://instagram.com/budou.biyori",
   responsibleDrinkingNotice: "「お酒は適量を。飲酒は法律で認められた年齢になってから。飲酒運転は絶対にやめましょう。」",
   disclaimer: "当サイトはワイン文化・食事との楽しみ方を紹介する編集メディアであり、酒類の販売、配送、購入手続きは行っていません。飲酒は法律で認められた年齢になってから、適量を守ってお楽しみください。",
@@ -25,12 +25,12 @@ export const siteData = {
   ],
 
   articles: [
-    { id: 1, title: "はじめての白ワイン選び。酸味と香りの見方", category: "ワインの基礎", date: "2024.03.15", readingTime: "5 min", excerpt: "ワインショップで迷わないための、小さなコツをご紹介します。", mood: "学ぶ", image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1400&auto=format&fit=crop" },
-    { id: 2, title: "春野菜に合わせたい、軽やかなロゼ", category: "季節の一本", date: "2024.03.20", readingTime: "4 min", excerpt: "アスパラガスや菜の花の苦味と寄り添う、おすすめのロゼワイン。", mood: "味わう", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=1400&auto=format&fit=crop" },
-    { id: 3, title: "山梨・勝沼で出会う日本ワインの現在地", category: "旅とワイン", date: "2024.04.05", readingTime: "7 min", excerpt: "歴史ある産地で進化を続ける、作り手たちの声を訪ねました。", mood: "旅する", image: "https://images.unsplash.com/photo-1596705492194-e34d0089e133?q=80&w=1400&auto=format&fit=crop" },
-    { id: 4, title: "寿司とワインは合うのか。塩、酢、脂から考える", category: "食卓のペアリング", date: "2024.04.12", readingTime: "6 min", excerpt: "お寿司にワインを合わせる時の、ちょっとした法則について。", mood: "探求する", image: "https://images.unsplash.com/photo-1558401391-7899b4bd5bbf?q=80&w=1400&auto=format&fit=crop" },
-    { id: 5, title: "週末の食卓に置きたい、やさしい赤", category: "編集部ノート", date: "2024.04.18", readingTime: "3 min", excerpt: "気取らない休日の夕食にぴったりな、軽快な赤ワインのお話。", mood: "くつろぐ", image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1400&auto=format&fit=crop" },
-    { id: 6, title: "ワインラベルを読むための小さな手引き", category: "ワインの基礎", date: "2024.04.25", readingTime: "5 min", excerpt: "ラベルに隠された情報から、好みの味を見つけるヒント。", mood: "学ぶ", image: "https://images.unsplash.com/photo-1569470451072-68314f596ca0?q=80&w=1400&auto=format&fit=crop" }
+    { id: 1, title: "はじめての白ワイン選び。酸味と香りの見方", category: "ワインの基礎", date: "2024.03.15", readingTime: "5分", excerpt: "ワインショップで迷わないための、小さなコツをご紹介します。", mood: "学ぶ", image: "/images/article_wine_1.webp" },
+    { id: 2, title: "春野菜に合わせたい、軽やかなロゼ", category: "季節の一本", date: "2024.03.20", readingTime: "4分", excerpt: "アスパラガスや菜の花の苦味と寄り添う、おすすめのロゼワイン。", mood: "味わう", image: "/images/article_wine_1.webp" },
+    { id: 3, title: "山梨・勝沼で出会う日本ワインの現在地", category: "旅とワイン", date: "2024.04.05", readingTime: "7分", excerpt: "歴史ある産地で進化を続ける、作り手たちの声を訪ねました。", mood: "旅する", image: "/images/article_wine_2.webp" },
+    { id: 4, title: "寿司とワインは合うのか。塩、酢、脂から考える", category: "食卓のペアリング", date: "2024.04.12", readingTime: "6分", excerpt: "お寿司にワインを合わせる時の、ちょっとした法則について。", mood: "探求する", image: "/images/article_wine_2.webp" },
+    { id: 5, title: "週末の食卓に置きたい、やさしい赤", category: "編集部ノート", date: "2024.04.18", readingTime: "3分", excerpt: "気取らない休日の夕食にぴったりな、軽快な赤ワインのお話。", mood: "くつろぐ", image: "/images/article_wine_2.webp" },
+    { id: 6, title: "ワインラベルを読むための小さな手引き", category: "ワインの基礎", date: "2024.04.25", readingTime: "5分", excerpt: "ラベルに隠された情報から、好みの味を見つけるヒント。", mood: "学ぶ", image: "/images/article_wine_1.webp" }
   ],
 
   pairings: [
@@ -43,11 +43,11 @@ export const siteData = {
   ],
 
   regions: [
-    { id: 1, name: "山梨・勝沼", climate: "盆地気候・寒暖差大", grapes: "甲州、マスカット・ベーリーA", travelNote: "ワイナリーが密集しており、徒歩や自転車でも巡りやすいエリア。秋の収穫期は活気に満ちています。", tastingStyle: "繊細で和食に寄り添う、日本の伝統的なスタイル。", image: "https://images.unsplash.com/photo-1502758765275-fa82544158dd?q=80&w=1400&auto=format&fit=crop" },
-    { id: 2, name: "長野・塩尻", climate: "冷涼な内陸性気候", grapes: "メルロー、シャルドネ", travelNote: "標高が高く、美しい山並みを背景に広がるブドウ畑は圧巻です。", tastingStyle: "果実味と酸味のバランスが良く、骨格のしっかりしたワインが多いのが特徴。", image: "https://images.unsplash.com/photo-1596726243881-420119e599b5?q=80&w=1400&auto=format&fit=crop" },
-    { id: 3, name: "北海道・余市", climate: "冷涼な気候（梅雨がない）", grapes: "ピノ・ノワール、ツヴァイゲルト", travelNote: "海と山に囲まれた自然豊かな産地。近年、新しい作り手が次々と集まっています。", tastingStyle: "美しい酸と冷涼な気候ならではのピュアな果実味が楽しめます。", image: "https://images.unsplash.com/photo-1423483641154-5411ec9c0ddf?q=80&w=1400&auto=format&fit=crop" },
-    { id: 4, name: "山形・上山", climate: "内陸性気候", grapes: "デラウェア、カベルネ・ソーヴィニヨン", travelNote: "果樹栽培の歴史が長く、温泉地としても有名。ワイナリー巡りの後に温泉を楽しめます。", tastingStyle: "フルーティーで親しみやすいものから、本格的な赤ワインまで多様です。", image: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1400&auto=format&fit=crop" },
-    { id: 5, name: "新潟・胎内", climate: "日本海側気候", grapes: "ツヴァイゲルト、シャルドネ", travelNote: "海に近い砂丘地帯でのブドウ栽培。独特のテロワールを感じられる注目の産地です。", tastingStyle: "上品な酸とミネラル感があり、魚介類との相性が抜群です。", image: "https://images.unsplash.com/photo-1506085186060-e41cbf67e37d?q=80&w=1400&auto=format&fit=crop" }
+    { id: 1, name: "山梨・勝沼", climate: "盆地気候・寒暖差大", grapes: "甲州、マスカット・ベーリーA", travelNote: "ワイナリーが密集しており、徒歩や自転車でも巡りやすいエリア。秋の収穫期は活気に満ちています。", tastingStyle: "繊細で和食に寄り添う、日本の伝統的なスタイル。", image: "/images/region_vineyard.webp" },
+    { id: 2, name: "長野・塩尻", climate: "冷涼な内陸性気候", grapes: "メルロー、シャルドネ", travelNote: "標高が高く、美しい山並みを背景に広がるブドウ畑は圧巻です。", tastingStyle: "果実味と酸味のバランスが良く、骨格のしっかりしたワインが多いのが特徴。", image: "/images/region_vineyard.webp" },
+    { id: 3, name: "北海道・余市", climate: "冷涼な気候（梅雨がない）", grapes: "ピノ・ノワール、ツヴァイゲルト", travelNote: "海と山に囲まれた自然豊かな産地。近年、新しい作り手が次々と集まっています。", tastingStyle: "美しい酸と冷涼な気候ならではのピュアな果実味が楽しめます。", image: "/images/region_vineyard.webp" },
+    { id: 4, name: "山形・上山", climate: "内陸性気候", grapes: "デラウェア、カベルネ・ソーヴィニヨン", travelNote: "果樹栽培の歴史が長く、温泉地としても有名。ワイナリー巡りの後に温泉を楽しめます。", tastingStyle: "フルーティーで親しみやすいものから、本格的な赤ワインまで多様です。", image: "/images/region_vineyard.webp" },
+    { id: 5, name: "新潟・胎内", climate: "日本海側気候", grapes: "ツヴァイゲルト、シャルドネ", travelNote: "海に近い砂丘地帯でのブドウ栽培。独特のテロワールを感じられる注目の産地です。", tastingStyle: "上品な酸とミネラル感があり、魚介類との相性が抜群です。", image: "/images/region_vineyard.webp" }
   ],
 
   faq: [

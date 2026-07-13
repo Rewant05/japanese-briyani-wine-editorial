@@ -1,3 +1,5 @@
+import { SmartImage } from './SmartImage';
+
 interface RegionCardProps {
   name: string;
   climate: string;
@@ -12,7 +14,14 @@ export const RegionCard = ({ name, climate, grapes, travelNote, tastingStyle, im
     <div className="region-card">
       {image && (
         <div className="region-card-image">
-          <img src={image} alt={name} loading="lazy" />
+          <SmartImage
+            src={image}
+            alt={name}
+            width={1024}
+            height={1024}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            fallbackSrc="/images/region_vineyard.png"
+          />
           <div className="region-card-image-overlay">
             <h3>{name}</h3>
           </div>

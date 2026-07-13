@@ -17,7 +17,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3>Menu</h3>
+            <h3>メニュー</h3>
             <ul>
               {siteData.navigation.map(link => (
                 <li key={link.href}>
@@ -28,7 +28,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3>Legal & Social</h3>
+            <h3>法的情報・お知らせ</h3>
             <ul>
               {siteData.footerLinks.map(link => (
                 <li key={link.href}>
@@ -42,13 +42,13 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className="footer-instagram"
             >
-              Instagram
+              インスタグラム
             </a>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} {siteData.name}. All rights reserved.</p>
+          <p>{new Date().getFullYear()}年 {siteData.name}。無断転載を禁じます。</p>
           <p className="drinking-notice">
             {siteData.responsibleDrinkingNotice}
           </p>

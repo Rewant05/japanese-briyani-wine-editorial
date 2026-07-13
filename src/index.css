@@ -10,13 +10,13 @@
   --bg-glass: rgba(18, 16, 16, 0.85);
 
   --text-primary: #f0ebe3;
-  --text-secondary: #a89f94;
-  --text-muted: #706a62;
+  --text-secondary: #c0b7ab;
+  --text-muted: #9c9489;
 
-  --accent-burgundy: #8b2942;
-  --accent-burgundy-light: #a83a55;
-  --accent-gold: #c5a059;
-  --accent-gold-dim: rgba(197, 160, 89, 0.15);
+  --accent-burgundy: #a12b4a;
+  --accent-burgundy-light: #da5c7b;
+  --accent-gold: #d4b572;
+  --accent-gold-dim: rgba(212, 181, 114, 0.15);
   --accent-grape: #6b3a6e;
   --accent-wine-fill: #7e253e;
 
@@ -708,7 +708,7 @@ ul { list-style: none; }
   border-top: 1px solid var(--accent-gold-dim);
 }
 .responsible-notice p { font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.05em; }
-.responsible-notice .disclaimer { font-size: 0.72rem; margin-top: 8px; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0.7; }
+.responsible-notice .disclaimer { font-size: 0.75rem; margin-top: 8px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
 /* =============== FOOTER =============== */
 .site-footer {
@@ -903,3 +903,110 @@ ul { list-style: none; }
 }
 .pairing-footer-box h3 { font-size: 1.4rem; color: var(--accent-burgundy-light); margin-bottom: 12px; }
 .pairing-footer-box p { font-size: 0.88rem; color: var(--text-secondary); }
+
+/* =============== MOBILE PERFORMANCE =============== */
+.section-py,
+.page-content,
+.responsible-notice,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 760px;
+}
+
+.site-footer { contain-intrinsic-size: 1px 560px; }
+
+.article-card,
+.pairing-card,
+.region-card,
+.faq-item,
+.footer-grid,
+.responsible-notice {
+  contain: layout paint style;
+}
+
+.article-card-image,
+.region-card-image,
+.bento-image {
+  background: linear-gradient(145deg, #241615, #321d28);
+}
+
+@media (max-width: 767px) {
+  .container { padding: 0 18px; }
+  .section-py { padding: 64px 0; }
+  .section-header { margin-bottom: 36px; }
+  .section-title-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 104px 16px 44px;
+  }
+  .bento-grid { gap: 12px; }
+  .bento-box {
+    border-radius: 20px;
+    padding: 24px;
+  }
+  .bento-main { min-height: 340px; }
+  .bento-main h1 { font-size: 2.35rem; }
+  .bento-main .hero-actions > a {
+    width: 100%;
+    text-align: center;
+  }
+  .bento-glass { min-height: 260px; }
+  .bento-image { min-height: 240px; }
+
+  .navbar {
+    padding: 12px 18px;
+    background: rgba(18, 16, 16, 0.96);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.32); }
+  .article-card-mood {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .featured-grid {
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .card-grid-3 { gap: 28px; }
+  .pairing-card,
+  .faq-item { padding: 24px; }
+  .footer-grid {
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+  .footer-bottom .drinking-notice {
+    max-width: none;
+    text-align: left;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .article-card:hover .article-card-image img { transform: none; }
+  .bento-image:hover img { opacity: 0.6; }
+  .note-tag:hover {
+    background: transparent;
+    color: var(--accent-gold);
+  }
+  .btn:hover {
+    background: transparent;
+    border-color: var(--border-medium);
+    color: var(--text-primary);
+  }
+  .btn-primary:hover {
+    background: var(--accent-burgundy);
+    border-color: var(--accent-burgundy);
+    color: var(--text-primary);
+  }
+  .footer-instagram:hover {
+    background: transparent;
+    color: var(--text-secondary);
+  }
+}
